@@ -2,8 +2,8 @@
  * Ported from useStyleTag in @vueuse/core
  * https://github.com/vueuse
  */
-import { DomHandler } from 'primevue/utils';
 import { getCurrentInstance, nextTick, onMounted, readonly, ref, watch } from 'vue';
+import { DomHandler } from '../utils/Utils';
 
 function tryOnMounted(fn, sync = true) {
     if (getCurrentInstance()) onMounted(fn);

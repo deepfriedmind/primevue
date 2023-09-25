@@ -1,0 +1,6 @@
+{
+    "main": "./stylesheet.cjs.js",
+    "module": "./stylesheet.esm.js",
+    "unpkg": "./stylesheet.min.js",
+    "types": "./stylesheet.d.ts"
+}

@@ -1,3 +1,5 @@
+import viteConfig from './vite.config';
+
 const baseUrl = '/';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -11,6 +13,9 @@ export default defineNuxtConfig({
             prefetch: false
         }
     ],
+    nitro: {
+        alias: viteConfig.resolve.alias
+    },
     app: {
         baseURL: baseUrl,
         head: {

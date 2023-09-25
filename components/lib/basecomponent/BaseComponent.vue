@@ -386,7 +386,7 @@ export default {
             handler(newValue) {
                 if (!newValue) {
                     loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
-                    this.$options.css && this.$css.loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
+                    this.$options.styles && this.$styles.loadStyle(undefined, { nonce: this.$config?.csp?.nonce });
                 }
             }
         }
@@ -445,7 +445,7 @@ export default {
              * const selfCSS = this._getPTClassValue(this.pt, 'css', this.$params);
              * const defaultCSS = this._getPTClassValue(this.defaultPT, 'css', this.$params);
              * const mergedCSS = mergeProps(selfCSS, defaultCSS);
-             * ObjectUtils.isNotEmpty(mergedCSS?.class) && this.$css.loadCustomStyle(mergedCSS?.class);
+             * ObjectUtils.isNotEmpty(mergedCSS?.class) && this.$styles.loadCustomStyle(mergedCSS?.class);
              */
 
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
@@ -533,11 +533,11 @@ export default {
             return this._getPTValue(obj, key, { instance: this, ...params }, false);
         },
         cx(key = '', params = {}) {
-            return !this.isUnstyled ? this._getOptionValue(this.$css.classes, key, { ...this.$params, ...params }) : undefined;
+            return !this.isUnstyled ? this._getOptionValue(this.$styles.classes, key, { ...this.$params, ...params }) : undefined;
         },
         sx(key = '', when = true, params = {}) {
             if (when) {
-                const self = this._getOptionValue(this.$css.inlineStyles, key, { ...this.$params, ...params });
+                const self = this._getOptionValue(this.$styles.inlineStyles, key, { ...this.$params, ...params });
                 const base = this._getOptionValue(inlineStyles, key, { ...this.$params, ...params });
 
                 return [base, self];
@@ -559,8 +559,8 @@ export default {
         $params() {
             return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };
         },
-        $css() {
-            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$css, ...this.$options.css };
+        $styles() {
+            return { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, loadCustomStyle: () => {}, ...(this._getHostInstance(this) || {}).$styles, ...this.$options.styles };
         },
         $config() {
             return this.$primevue?.config;

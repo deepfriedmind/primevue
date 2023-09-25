@@ -81,7 +81,9 @@ export default {
             'primevue/dynamicdialogeventbus': path.resolve(__dirname, './components/lib/dynamicdialogeventbus/DynamicDialogEventBus.js'),
             'primevue/virtualscroller': path.resolve(__dirname, './components/lib/virtualscroller/VirtualScroller.vue'),
             'primevue/passthrough': path.resolve(__dirname, './components/lib/passthrough/index.js'),
-            'primevue/passthrough/tailwind': path.resolve(__dirname, './components/lib/passthrough/tailwind/index.js')
+            'primevue/passthrough/tailwind': path.resolve(__dirname, './components/lib/passthrough/tailwind/index.js'),
+            'primevue/panel/style': path.resolve(__dirname, './components/lib/panel/style/index.js'),
+            'primevue/stylesheet': path.resolve(__dirname, './components/lib/stylesheet/StyleSheet.js')
         }
     }
 };
